@@ -2,7 +2,7 @@ We consider the following simplified models to single B production (fixing \kapp
 
 - Singlet (BR approximatelly 50%:25%:25% to Wt:Zb:Hb)
 - Doublet 1 (BR approximatelly 50%:50% to Zb:Hb)
-- Doublet 2 (BR approximatelly 100%)
+- Doublet 2 (BR approximatelly 100% to Wt)
 
 Four tables are in this folder, from where two are just for support:
 
