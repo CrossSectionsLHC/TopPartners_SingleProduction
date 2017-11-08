@@ -1,4 +1,4 @@
-We consider the following simplified models to single B production (fixing \kappa):
+We consider the following simplified models to single T production (fixing \kappa):
 
 - Singlet (BR approximatelly 50%:25%:25% to Wb:Zt:Ht)
 - Doublet 1 (BR approximatelly 100% to Wt)
@@ -13,7 +13,10 @@ Four tables are in this folder, from where two are just for support:
 ===============================================================================================
 
 The PDF used is CTEQ6L (to be updated)
-We use a minimal generation cut of ptj > 1 GeV , j = g,u,d,s,c
+The renormalisation and factorisation scales have been set on an event-by-event basis following the MG algorithm, 
+and the systematics have been calculated varying the central value in the range 1/2 to 2.
+We use a minimal generation cut of ptj > 1 GeV, where j = g,u,d,s,c
+ 
  
 
 
