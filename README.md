@@ -1,4 +1,4 @@
 # TopPartners_SingleProduction
 
 Explain the internal folders and rescaling 
-(refering to the pdf attached)
+(Please refer to the pdf attached)
