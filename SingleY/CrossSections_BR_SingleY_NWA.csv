@@ -1,4 +1,4 @@
-mass,sigmaHat(Ybj)(pb),QCDscaleUp(%) ,QCDscaleUp(%),kappaDoublet1[Gamma/MQ=1%],BRdoublet1(Wb)(%)
+mass,sigmaHat(Ybj)(pb),sigmaHat(Ybj)QCDscaleUp(%),sigmaHat(Ybj)QCDscaleDown(%),kappaDoublet1[Gamma/MQ=1%],BRdoublet1(Wb)(%)
 700,50.9587,27.9,-20,0.24945937877399285,100
 800,34.9723,29.1,-20.7,0.21825083667889272,100
 900,24.5265,30.3,-21.3,0.1939878911328378,100
