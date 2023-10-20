@@ -199,11 +199,12 @@ for part_type in ["T", "B", "Y", "X"] :
     df_nwa_xs_file = pd.read_csv(nwa_xs_file)
     print(df_nwa_xs_file.columns)
 
-    df_with_couplings = pd.DataFrame()
-    df_with_couplings["mass"] = df_nwa_xs_file["mass"]
-    df_with_couplings["mass1"] = df_with_couplings["mass"]
-
     for pp, proc in enumerate(procs):
+
+        df_with_couplings = pd.DataFrame()
+        df_with_couplings["mass"] = df_nwa_xs_file["mass"]
+        df_with_couplings["mass1"] = df_with_couplings["mass"]
+
         fig = plt.figure()
         ax = fig.add_subplot()
         #else:
@@ -231,8 +232,8 @@ for part_type in ["T", "B", "Y", "X"] :
 
             print(proc, procs[proc])
             center = 'sigmaHat(%s)(pb)_%s' % (proc, gamma) 
-            up = 'sigmaHat(%s)Up(pb)_%s' % (proc, gamma)
-            down = 'sigmaHat(%s)Down(pb)_%s' % (proc, gamma)
+            up = 'sigmaHat(%s)(pb)_%s_Up' % (proc, gamma)
+            down = 'sigmaHat(%s)(pb)_%s_Down' % (proc, gamma)
 
             df_with_couplings[center] = df_nwa_xs_file['sigmaHat(%s)(pb)' % (proc) ]*(procs[proc]*df_nwa_coupling_file[gamma])**2
             #df_with_couplings['@@sigmaHat(%s)(pb)_%s' % (proc, gamma) ] = (df_nwa_coupling_file[gamma])
@@ -266,7 +267,12 @@ for part_type in ["T", "B", "Y", "X"] :
         plt.clf()
 
 
-    print(df_with_couplings)
+        df_with_couplings = df_with_couplings.reindex(sorted(df_with_couplings.columns), axis=1)
+        print(df_with_couplings)
+        nameout = "interpreted_tables/sigma_%s_%s" % (part_type, proc)
+        df_with_couplings.to_csv("%s.csv" % nameout, index=False)
+        print("saved in tabular format %s" % nameout)
+        
     print("---------------------------")
 
 
