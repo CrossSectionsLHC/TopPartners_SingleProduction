@@ -1,3 +1,7 @@
+#Simple script to calculate kappa for Y decays. 
+#Can be modified easily for different decays.
+#kappa calculation for Y->Wb at G/M = 1%
+
 import numpy as np
 import sympy as sp
 
@@ -9,6 +13,7 @@ e_over_sw = np.sqrt(2)*0.458486
 m_q = 4.18	#b mass
 m_V = 80.37	#W mass
 m_H = 125.35	#Higgs mass
+M_W = 80.37
 
 M_X, Gamma, k_V, lambda_ = sp.symbols('M_X Gamma k_V lambda_', real = True)
 
@@ -16,7 +21,7 @@ M_X, Gamma, k_V, lambda_ = sp.symbols('M_X Gamma k_V lambda_', real = True)
 k_V = sp.symbols('k_V')
 
 # Define the Gamma expression
-gamma_eq = sp.Eq( d_V * (k_V**2*X_L + k_V**2*X_R)*3/4*(e_over_sw)**2*lambda_/(96*np.pi*M_X**3)*(m_q**2 + M_X**2 + (m_q**4 - 2*m_q**2*M_X**2 + M_X**4)/m_V**2 - 2*m_V**2 - 12*k_V**2*X_L*k_V**2*X_R*m_q*M_X/(k_V**2*X_L + k_V**2*X_R)), Gamma )
+gamma_eq = sp.Eq(8/246**2*M_W**2/e_over_sw**2* d_V * (k_V**2*X_L + k_V**2*X_R)*3/4*(e_over_sw)**2*lambda_/(96*np.pi*M_X**3)*(m_q**2 + M_X**2 + (m_q**4 - 2*m_q**2*M_X**2 + M_X**4)/m_V**2 - 2*m_V**2 - 12*k_V**2*X_L*k_V**2*X_R*m_q*M_X/(k_V**2*X_L + k_V**2*X_R)), Gamma )
 
 #gamma_arr = sp.lambdify((M_X, Gamma, k_V), gamma_eq)
 # Solve for k_V
