@@ -20,12 +20,15 @@ e_over_sw = np.sqrt(2)*0.458486
 results_dict = {'M_B': M_X_arr, 'Kappa': kappa_arr}
 
 def Gamma_eqn(decay, M_X, m_q, M_boson, kappa, lambda_):
-	if decay == "B->Wt" or decay == "B->Zb":
+	if decay == "B->Wt":
 	    # Define the Gamma expression
-	    gamma_eq = d_V * (kappa**2*X_L + kappa**2*X_R)*3/4*(e_over_sw)**2*lambda_/(96*np.pi*M_X**3)*(m_q**2 + M_X**2 + (m_q**4 - 2*m_q**2*M_X**2 + M_X**4)/M_boson**2 - 2*M_boson**2 - 12*kappa**2*X_L*kappa**2*X_R*m_q*M_X/(kappa**2*X_L + kappa**2*X_R))
+	    gamma_eq = 8/246**2*M_W**2/e_over_sw**2*   d_V * (kappa**2*X_L + kappa**2*X_R)*3/4*(e_over_sw)**2*lambda_/(96*np.pi*M_X**3)*(m_q**2 + M_X**2 + (m_q**4 - 2*m_q**2*M_X**2 + M_X**4)/M_boson**2 - 2*M_boson**2 - 12*kappa**2*X_L*kappa**2*X_R*m_q*M_X/(kappa**2*X_L + kappa**2*X_R))	
+	if decay == "B->Zb":
+	    # Define the Gamma expression
+	    gamma_eq = 4/246**2*M_W**2/e_over_sw**2*   d_V * (kappa**2*X_L + kappa**2*X_R)*3/4*(e_over_sw)**2*lambda_/(96*np.pi*M_X**3)*(m_q**2 + M_X**2 + (m_q**4 - 2*m_q**2*M_X**2 + M_X**4)/M_boson**2 - 2*M_boson**2 - 12*kappa**2*X_L*kappa**2*X_R*m_q*M_X/(kappa**2*X_L + kappa**2*X_R))
 	elif decay == "B->Hb":
 	    # Define the Gamma expression
-	    gamma_eq = 3 * (kappa**2*X_L + kappa**2*X_R) * lambda_ / (96 * np.pi * M_X**3) * (m_q**2 + M_X**2 - M_boson**2 + 4 * kappa**2*X_L*kappa**2*X_R*m_q*M_X/(kappa**2*X_L + kappa**2*X_R))
+	    gamma_eq = M_X**2/246**2 *3 * (kappa**2*X_L + kappa**2*X_R) * lambda_ / (96 * np.pi * M_X**3) * (m_q**2 + M_X**2 - M_boson**2 + 4 * kappa**2*X_L*kappa**2*X_R*m_q*M_X/(kappa**2*X_L + kappa**2*X_R))
 	return gamma_eq
 
 X_decays = ["B->Wt", "B->Zb", "B->Hb"]	
@@ -56,5 +59,5 @@ header.append("Gamma(Total)")
 print("\t".join(header))
 i = 0
 for row in results_table:
-    print("\t".join(map(str, row)),"\t", (results_dict["Gamma(B->Wt)"][i]+results_dict["Gamma(B->Zb)"][i]+results_dict["Gamma(B->Hb)"][i])/M_X_arr[i]/100)
+    print("\t".join(map(str, row)),"\t", results_dict["Gamma(B->Wt)"][i]+results_dict["Gamma(B->Zb)"][i]+results_dict["Gamma(B->Hb)"][i])
     i=i+1

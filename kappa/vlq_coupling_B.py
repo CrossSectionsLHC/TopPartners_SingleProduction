@@ -24,12 +24,15 @@ results_dict = {'M_B': M_X_arr, 'Gamma': Gamma_arr}
 
 X_decays = ["B->Wt", "B->Zb", "B->Hb"]
 for decay in X_decays:
-    if decay == "B->Wt" or decay == "B->Zb":
+    if decay == "B->Wt":
         # Define the Gamma expression
-        gamma_eq = sp.Eq(d_V * (kappa**2*X_L + kappa**2*X_R)*3/4*(e_over_sw)**2*lambda_/(96*np.pi*M_X**3)*(m_q**2 + M_X**2 + (m_q**4 - 2*m_q**2*M_X**2 + M_X**4)/M_boson**2 - 2*M_boson**2 - 12*kappa**2*X_L*kappa**2*X_R*m_q*M_X/(kappa**2*X_L + kappa**2*X_R)), BR*Gamma)
+        gamma_eq = sp.Eq(8/246**2*M_W**2/e_over_sw**2*   d_V * (kappa**2*X_L + kappa**2*X_R)*3/4*(e_over_sw)**2*lambda_/(96*np.pi*M_X**3)*(m_q**2 + M_X**2 + (m_q**4 - 2*m_q**2*M_X**2 + M_X**4)/M_boson**2 - 2*M_boson**2 - 12*kappa**2*X_L*kappa**2*X_R*m_q*M_X/(kappa**2*X_L + kappa**2*X_R)), BR*Gamma)
+    elif decay == "B->Zb":
+        # Define the Gamma expression
+        gamma_eq = sp.Eq(4/246**2*M_W**2/e_over_sw**2*   d_V * (kappa**2*X_L + kappa**2*X_R)*3/4*(e_over_sw)**2*lambda_/(96*np.pi*M_X**3)*(m_q**2 + M_X**2 + (m_q**4 - 2*m_q**2*M_X**2 + M_X**4)/M_boson**2 - 2*M_boson**2 - 12*kappa**2*X_L*kappa**2*X_R*m_q*M_X/(kappa**2*X_L + kappa**2*X_R)), BR*Gamma)
     elif decay == "B->Hb":
         # Define the Gamma expression
-        gamma_eq = sp.Eq(3 * (kappa**2*X_L + kappa**2*X_R) * lambda_ / (96 * np.pi * M_X**3) * (m_q**2 + M_X**2 - M_boson**2 + 4 * kappa**2*X_L*kappa**2*X_R*m_q*M_X/(kappa**2*X_L + kappa**2*X_R)), BR*Gamma)
+        gamma_eq = sp.Eq(M_X**2/246**2*    3 * (kappa**2*X_L + kappa**2*X_R) * lambda_ / (96 * np.pi * M_X**3) * (m_q**2 + M_X**2 - M_boson**2 + 4 * kappa**2*X_L*kappa**2*X_R*m_q*M_X/(kappa**2*X_L + kappa**2*X_R)), BR*Gamma)
     
     # Solve for kappa
     solutions = sp.solve(gamma_eq, kappa)
