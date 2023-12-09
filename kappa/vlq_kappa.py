@@ -13,7 +13,7 @@ M_W = 80.37	# W mass
 M_Z = 91.19	# Z mass
 M_H = 125.35	# Higgs mass
 M_X_arr = np.array([700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000])  # Array for M_X
-Gamma_arr = np.array([7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20])  # Array for Gamma
+Gamma_arr = np.array([7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20])  # Array for G/M = 1%
 e_over_sw = np.sqrt(2)*0.458486
 
 # Define symbolic variables
@@ -26,13 +26,13 @@ X_decays = ["B->Wt", "B->Zb", "B->Hb"]
 for decay in X_decays:
     if decay == "B->Wt":
         # Define the Gamma expression
-        gamma_eq = sp.Eq(8/246**2*M_W**2/e_over_sw**2*   d_V * (kappa**2*X_L + kappa**2*X_R)*3/4*(e_over_sw)**2*lambda_/(96*np.pi*M_X**3)*(m_q**2 + M_X**2 + (m_q**4 - 2*m_q**2*M_X**2 + M_X**4)/M_boson**2 - 2*M_boson**2 - 12*kappa**2*X_L*kappa**2*X_R*m_q*M_X/(kappa**2*X_L + kappa**2*X_R)), Gamma)
+        gamma_eq = sp.Eq(8/246**2*M_W**2/e_over_sw**2*   d_V * (kappa**2*X_L + kappa**2*X_R)*3/4*(e_over_sw)**2*lambda_/(96*np.pi*M_X**3)*(m_q**2 + M_X**2 + (m_q**4 - 2*m_q**2*M_X**2 + M_X**4)/M_boson**2 - 2*M_boson**2 - 12*kappa**2*X_L*kappa**2*X_R*m_q*M_X/(kappa**2*X_L + kappa**2*X_R)), BR*Gamma)
     elif decay == "B->Zb":
         # Define the Gamma expression
-        gamma_eq = sp.Eq(4/246**2*M_W**2/e_over_sw**2*   d_V * (kappa**2*X_L + kappa**2*X_R)*3/4*(e_over_sw)**2*lambda_/(96*np.pi*M_X**3)*(m_q**2 + M_X**2 + (m_q**4 - 2*m_q**2*M_X**2 + M_X**4)/M_boson**2 - 2*M_boson**2 - 12*kappa**2*X_L*kappa**2*X_R*m_q*M_X/(kappa**2*X_L + kappa**2*X_R)), Gamma)
+        gamma_eq = sp.Eq(4/246**2*M_W**2/e_over_sw**2*   d_V * (kappa**2*X_L + kappa**2*X_R)*3/4*(e_over_sw)**2*lambda_/(96*np.pi*M_X**3)*(m_q**2 + M_X**2 + (m_q**4 - 2*m_q**2*M_X**2 + M_X**4)/M_boson**2 - 2*M_boson**2 - 12*kappa**2*X_L*kappa**2*X_R*m_q*M_X/(kappa**2*X_L + kappa**2*X_R)), BR*Gamma)
     elif decay == "B->Hb":
         # Define the Gamma expression
-        gamma_eq = sp.Eq(M_X**2/246**2*    3 * (kappa**2*X_L + kappa**2*X_R) * lambda_ / (96 * np.pi * M_X**3) * (m_q**2 + M_X**2 - M_boson**2 + 4 * kappa**2*X_L*kappa**2*X_R*m_q*M_X/(kappa**2*X_L + kappa**2*X_R)), Gamma)
+        gamma_eq = sp.Eq(M_X**2/246**2*    3 * (kappa**2*X_L + kappa**2*X_R) * lambda_ / (96 * np.pi * M_X**3) * (m_q**2 + M_X**2 - M_boson**2 + 4 * kappa**2*X_L*kappa**2*X_R*m_q*M_X/(kappa**2*X_L + kappa**2*X_R)), BR*Gamma)
     
     # Solve for kappa
     solutions = sp.solve(gamma_eq, kappa)
