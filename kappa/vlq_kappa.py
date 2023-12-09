@@ -13,7 +13,8 @@ M_W = 80.37	# W mass
 M_Z = 91.19	# Z mass
 M_H = 125.35	# Higgs mass
 M_X_arr = np.array([700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000])  # Array for M_X
-Gamma_arr = np.array([7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20])  # Array for G/M = 1%
+Gamma_arr = np.array([7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20])  #Array for G/M = 1%
+#Gamma_arr = np.array([35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100])  # Array for G/M = 5%
 e_over_sw = np.sqrt(2)*0.458486
 
 # Define symbolic variables
